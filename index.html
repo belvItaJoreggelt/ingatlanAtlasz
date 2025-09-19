@@ -388,1231 +388,398 @@
 		
 		@media (max-width: 480px) {
 			#teto {
-				height: 15vh;
 				font-size: 3rem;
 			}
 			
 			#torzs{
 				height: 60vh;
-				justify-content:center;
 			}
 			
 			#bttn_celunk_torzs, #bttn_bovebben_torzs, #bttn_kapcsolat_torzs {
 				min-width: 40px;
-				font-size: 0.80rem;
-				padding: 9.5px 17.5px;
-			}
-			.button-container {
-				width:100%;
-				justify-content:center;
-				left: 5px;  
-				gap: 5px;  
-			}
-			  
-			.content-area {
-				top: 70px;
-				left: 10px;
-				right: 10px;
-				bottom: 1px;
-				justify-content: left;
-				
-			}
-			
-			.content-text {
-				font-size: 0.7rem;
-			}
-			
-			#modoFunkcFelirat{
-				font-size: 0.7rem;
-			}
-			
-			#kerdesKattFelirat{
-				font-size: 0.75rem;
-			}
-			.faq-question {
-				padding: 12px 40px 12px 15px;
-				font-size: 0.7rem;
-			}
-			.faq-question:hover {
-				background: rgba(255,255,255,0.12);
-				transform: translateX(0px);
-			}
-			.faq-answer {
-				font-size: 0.8rem;
-			}
-			
-			kontakt-form-wrap{
-				margin-left:30px;
-			}
-			
-			
-			  
-			#torzs.compactTorzs {
-				height: 55vh ;
-
-			}
-			
-			.compactContentArea {
-				height: auto;
-
-			}
-			
-			.lil{
-				text-align:justify;
-			}
-			
-			#alja {
-				height: auto;
-				padding: 4px;
-				font-size: 0.7rem;
-			}
-		}
-	</style>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-		  var bttn_celunk_torzs = document.getElementById('bttn_celunk_torzs');
-		  var bttn_bovebben_torzs = document.getElementById('bttn_bovebben_torzs');
-		  var bttn_kapcsolat_torzs = document.getElementById('bttn_kapcsolat_torzs');
-		  var contentArea = document.querySelector('.content-area');
-		  var contentText = document.getElementById('content-text');
-		  var torzs = document.getElementById('torzs');
-
-		  function setupElerhetosegLink() {
-			var link = document.querySelector('.elerhetosegek_link');
-			if (link) {
-			  link.onclick = function (e) {
-				e.preventDefault();
-				bttn_kapcsolat_torzs.click();
-			  };
-			}
-		  }
-
-		  function setupBovebbenLink() {
-			var link = document.querySelector('.bovebben_link');
-			if (link) {
-			  link.onclick = function (e) {
-				e.preventDefault();
-				bttn_bovebben_torzs.click();
-			  };
-			}
-		  }
-
-		  function resetAllShadows() {
-			bttn_celunk_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-			bttn_bovebben_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-			bttn_kapcsolat_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-		  }
-
-		  function setupFAQ() {
-			var faqQuestions = document.querySelectorAll('.faq-question');
-			faqQuestions.forEach(function (question) {
-			  question.addEventListener('click', function () {
-				var answer = this.nextElementSibling;
-				var isActive = this.classList.contains('active');
-				faqQuestions.forEach(function (q) {
-				  q.classList.remove('active');
-				  q.nextElementSibling.classList.remove('active');
-				});
-				if (!isActive) {
-				  this.classList.add('active');
-				  answer.classList.add('active');
-				}
-			  });
-			});
-			setupElerhetosegLink();
-		  }
-
-		  bttn_celunk_torzs.onclick = function () {
-			resetAllShadows();
-			bttn_celunk_torzs.style.boxShadow =
-			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
-			contentText.innerHTML =
-			  "<br>Célunk egy olyan megbízható szoftverkomponens elérhetővé tétele, amely hatékony megoldás nyújt vállalkozásoknak, illetve magánszemélyeknek az ingatlanok nyilvántartásában.<br><br>Ha szeretne jobban megismerkedni a nyilvántartó rendszerben rejlő funkciókkal, kérem kattintson a <a href='#' class='bovebben_link'>Bővebben</a> menüpontra.<br><br>Amennyiben szüksége van az említett szoftverre/applikációra vagy meglévő ügyfelükként továbbfejlesztési igénye lenne kérem, keressen bizalommal a <a href='#' class='elerhetosegek_link'>Kapcsolat</a> menüpontban található elérhetőségek egyikén.";
-			setupElerhetosegLink();
-			setupBovebbenLink();
-			torzs.classList.remove('expanded');
-			contentArea.classList.add('lil');
-			contentArea.classList.add('compactContentArea');
-			torzs.classList.add('compactTorzs');
-			document.getElementById('alja').style.display = 'flex';
-		  };
-
-		  bttn_bovebben_torzs.onclick = function () {
-			resetAllShadows();
-			bttn_bovebben_torzs.style.boxShadow =
-			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
-			contentText.innerHTML = `
-			  <div class="faq-container">
-				<p id="kerdesKattFelirat" style="margin-bottom: 20px; font-weight: 600;">A kérdésekre kattintva megtudhatja, hogy milyen módon kínál megoldást a nyilvántartó rendszer az adott problémára.</p>
-				<p id="modoFunkcFelirat" style="margin-bottom: 25px; color: #e0e0e0;">Az felsorolt funkciók mindegyike igény szerint módosítható, illetve eltávolítható!</p>
-
-				<div class="faq-item">
-					<div class="faq-question">Szeretne átfogó képet kapni a kiadásairól és bevételeiről?</div>
-					<div class="faq-answer">
-						<p>A nyilvántartó rendszerben lehetősége nyílik táblázatos és diagrammos kimutatások készítésére a közüzemi és javítási költségekről, illetve az ingatlan esetleges kiadásából származó bevételekről.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Kiutat keres az adatok káoszából?</div>
-					<div class="faq-answer">
-						<p>Az Ingatlan Atlasz strukkturáltsága révén biztos megoldást nyújt a nyilvántartott adatok egyszerű és hatékony átlátására. A rendszer felépítése lehetővé teszi, hogy az adatok szeparáltan jelenjenek meg, így egyszerre mindig csak egymással szorosan összefüggő információk legyenek láthatóak.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Aggódik az adatok biztonságáért?</div>
-					<div class="faq-answer">
-						<p>A rendszerbe való belépéshez felhasználói profil (név és jelszó) szükséges. Ezen felül minden profilnak saját jogosultsági szint adható, illetve az az egyes funkciók használata (például egy ingatlan teljeskörű törlése) is jogosultsági szinthez köthető.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Van -e lehetőség meghatározott paraméterekkel rendelkező ingatlanok keresésére?</div>
-					<div class="faq-answer">
-						<p>Természetesen van. Az ilyenfajta lekérdezések készítésekor egy listát kapunk a megfelelő ingatlanok neveivel. Minden találat mellett pedig egy gomb helyezkedik el, amelyre kattintva megtekinthetjük a kiválasztott ingatlan összes adatát.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Milyen módon védekezik a rendszer a helytelen adatok megadása ellen?</div>
-					<div class="faq-answer">
-						<p>Mentést megelőzően a számlaadatokat összeveti a rendszer a eddigiekkel, illetve az adott számlához tartozó részadatokat egymással és jelentős eltérés esetén pedig jelzi azt felhasználóknak. Ezen felül számos adatot a rendszer előre meghatározott formátumban vár, a beírást követően pedig azonnal ellenőrzi is őket (ilyenek például a telefonszám vagy a dátum mezők).</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Egyszerre több felhasználó is tudja használni?</div>
-					<div class="faq-answer">
-						<p>A rendszerben tárolt adatokhoz egyidjűleg több felhasználó is hozzáférhet, azonban egy adott ingatlan adatait egyszerre kizárólag egy felhasználó szerkesztheti.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Elakadás esetén van e mód segítségkérésre?</div>
-					<div class="faq-answer">
-						<p>Igen, a nyilvántartó rendszer beépített súgó gombokkal rendelkezik, amelyekre kattintva a felhasználó rövid leírást kaphat az éppen elérhető funkciók használatáról. Ugyan ez a hatás érhető el a F1 billentyű lenyomásával.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Változtatható a betűk mérete/színe?</div>
-					<div class="faq-answer">
-						<p>Az Ingatlan Atlaszban lehetőséget biztosít hogy minden felhasználó a saját igényei szerint használja az alkalmazást. Az alapértelmezett betűmerettől 2 egységgel lehet növelni illetve csökkenteni a betűk méretét. Színek tekintetében pedig kék, zöld és letisztult (fekete-fehér) stílusok közül lehet választani.</p>
-					</div>
-				</div>
-				
-				<div class="faq-item">
-					<div class="faq-question">Miért nem rendelkezem az Ingatlan Atlasz nyilvántartó rendszerrel?</div>
-					<div class="faq-answer">
-						<p>Ennek az egyedüli oka az lehet, hogy még nem keresett fel bennünket a <a href="#" class="elerhetosegek_link">Kapcsolat</a> menüpontban található elérhetőségek egyikén!</p>
-					</div>
-				</div>
-			  </div>
-			`;
-			torzs.classList.remove('expanded');
-			contentArea.classList.remove('compactContentArea');
-			torzs.classList.remove('compactTorzs');
-			contentArea.classList.remove('lil');
-			document.getElementById('alja').style.display = 'flex';
-			setupMessengerDetection();
-			setupFAQ();
-		  };
-
-		  bttn_kapcsolat_torzs.onclick = function () {
-			resetAllShadows();
-			bttn_kapcsolat_torzs.style.boxShadow =
-			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
-
-			contentText.innerHTML = `
-			  <div style="margin-bottom: 20px;">
-				<div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-				  <span style="min-width: 20px; flex-shrink: 0;">📧 <strong>E-mail:</strong></span>
-				  
-				  <div style="flex: 1;">
-					<div style="margin-bottom: 8px; margin-left: -25px;"><br>új ügyfelek részére: <a class="kapcsolatok" href='mailto:ingatlanatlasz@gmail.com'>ingatlanatlasz@gmail.com</a></div>
-					<div style="margin-bottom: 8px; margin-left: -25px;">meglévő ügyfelek részére: <a class="kapcsolatok" href='mailto:ingatlanatlaszmeglevo@gmail.com'>ingatlanatlaszmeglevo@gmail.com</a></div>
-				  </div>
-				</div>
-				
-				<div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-				  <span style="min-width: 20px; flex-shrink: 0;">📱 <strong>Telefon:</strong></span>
-				  <div><a class="kapcsolatok" href='tel:+36301234567'>+36 30 123 4567</a></div>
-				</div>
-			  </div>
-			  
-			  
-			  🔗 <span id='kozvetlen'><strong>Közvetlen üzenet küldéséhez kattintson ide</strong></span><br><br>
-			  
-			  <div id='kontakt-form-wrap' style='margin-top:12px; margin-left:50px;'>
-				<form id='kontaktForm' class='kapcsolat-form' style='display:grid;gap:10px;max-width:520px;'>
-				  <input type='hidden' name='access_key' value='d0602500-3ece-48c6-86db-bef88bbcda5d'>
-				  <input type='hidden' name='subject' value='Kapcsolat üzenet az oldalról'>
-				  <input type='checkbox' name='botcheck' style='display:none'>
-				  <label>Név<input name='name' type='text' required placeholder='Az Ön neve' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></label>
-				  <label>Telefonszám<input id='tel' name='tel' type='tel' inputmode='tel' autocomplete='tel' required placeholder='06 30 123 4567' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></label>
-				  <label>Üzenet<textarea name='message' required rows='5' placeholder='Kérem, ide írja üzenetét…' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></textarea></label>
-				  <button id='kontaktKuldes' type='submit' style='padding:12px 18px;border-radius:10px;border:2px solid #fff;background:transparent;color:#fff;font-weight:600;cursor:pointer'>Üzenet küldése</button>
-				  <div id='kontaktUzenet' style='min-height:20px;font-size:0.95rem'></div>
-				</form>
-			  </div>
-			`;
-
-			var wrap = document.getElementById('kontakt-form-wrap');
-			wrap.style.display = 'none';
-			document.getElementById('alja').style.display = 'none';
-			contentArea.classList.remove('lil');
-			contentArea.classList.add('compactContentArea');
-			torzs.classList.add('compactTorzs');
-			
-			var kozvetlen = document.getElementById('kozvetlen');
-			kozvetlen.style.cursor = 'pointer';
-			kozvetlen.addEventListener('click', function () {
-			  var isHidden = wrap.style.display === 'none' || wrap.style.display === '';
-			  wrap.style.display = isHidden ? 'block' : 'none';
-			  
-			  if (isHidden) {
-				torzs.classList.remove('compactTorzs');  // Remove compact class
-				torzs.classList.add('expanded');         // Add expanded class
-			  } else {
-				torzs.classList.add('compactTorzs');     // Add compact class back
-				torzs.classList.remove('expanded');     // Remove expanded class
-			  }
-			});
-
-			initKontaktForm();
-			setupMessengerDetection();
-			updateViewportSize();
-		  };
-		
-		function setupMessengerDetection() {
-			var ua = navigator.userAgent || navigator.vendor || window.opera;
-			var isMessenger = ua.indexOf("FBAN") > -1 || ua.indexOf("FBAV") > -1;
-
-			if (isMessenger) {
-				document.querySelectorAll('.kapcsolatok').forEach(function(el) {
-					var href = el.getAttribute('href') || '';
-					
-					if (href.startsWith('tel:')) {
-						var number = href.replace('tel:', '');
-						el.removeAttribute('href');
-						el.style.cursor = "pointer";
-						el.onclick = function(e) {
-							e.preventDefault();
-							navigator.clipboard.writeText(number).then(function() {
-								alert("A telefonszám vágólapra másolva: " + number);
-							});
-						};
-						el.textContent = number;
-					} 
-					else if (href.startsWith('mailto:')) {
-						var email = href.replace('mailto:', '');
-						el.removeAttribute('href');
-						el.style.cursor = "pointer";
-						el.onclick = function(e) {
-							e.preventDefault();
-							navigator.clipboard.writeText(email).then(function() {
-								alert("Az email cím vágólapra másolva: " + email);
-							});
-						};
-						el.textContent = email ;
-					}
-				});
-			}
-		}
-
-		function updateViewportSize() {
-			var w = window.innerWidth;
-			var h = window.innerHeight;
-			var el = document.getElementById('viewportSize');
-			if (el) {
-				el.textContent = "Ablakméret: " + w + " × " + h + " px";
-			}
-		}
-		window.addEventListener('resize', updateViewportSize);
-		document.addEventListener('visibilitychange', function () {
-			if (!document.hidden) updateViewportSize();
-		});
-			
-		  function initKontaktForm() {
-			var form = document.getElementById('kontaktForm');
-			if (!form) return;
-			var msgEl = document.getElementById('kontaktUzenet');
-			var btn = document.getElementById('kontaktKuldes');
-
-			form.addEventListener('submit', function (e) {
-			  e.preventDefault();
-			  submitKontaktForm(form, msgEl, btn);
-			});
-		  }
-
-		  async function submitKontaktForm(form, msgEl, btn) {
-			var honeypot = form.querySelector('[name="botcheck"]');
-			if (honeypot && honeypot.checked) return;
-
-			btn.disabled = true;
-			msgEl.textContent = 'Küldés folyamatban…';
-
-			try {
-			  var payload = Object.fromEntries(new FormData(form));
-			  var resp = await fetch('https://api.web3forms.com/submit', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-				body: JSON.stringify(payload)
-			  });
-
-			  var rawText = await resp.text();
-			  var data; try { data = JSON.parse(rawText); } catch { data = { raw: rawText }; }
-
-			  if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
-				var cooldown = 60;
-				msgEl.textContent = `Túl sok kérés. Próbálja újra ${cooldown} mp múlva.`;
-				var timer = setInterval(function () {
-				  cooldown--;
-				  msgEl.textContent = `Túl sok kérés. Próbálja újra ${cooldown} mp múlva.`;
-				  if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
-				}, 1000);
-				return;
-			  }
-
-			  if (!resp.ok || (data && data.success === false)) {
-				var errMsg = (data && (data.message || data.raw)) || (`HTTP ${resp.status} ${resp.statusText}`);
-				throw new Error(errMsg);
-			  }
-
-			  msgEl.textContent = 'Üzenet elküldve! Hamarosan jelentkezünk.';
-			  form.reset();
-			} catch (err) {
-			  console.error(err);
-			  msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
-			} finally {
-			  if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) btn.disabled = false;
-			}
-		  }
-
-		  // Default section to show on load:
-		  bttn_bovebben_torzs.click();
-		});
-		
-		
-
-	</script>
-</head>
-<body>
-	<div id="teto">
-		<p id="cim">Ingatlan Atlasz</p>
-	</div>
-	
-	<div id="torzs">
-		<div class="button-container">
-			<div id="bttn_celunk_torzs">
-				Célunk
-			</div>
-			<div id="bttn_bovebben_torzs">
-				Bővebben
-			</div>
-			<div id="bttn_kapcsolat_torzs">
-				Kapcsolat
-			</div>
-		</div>
-		
-		<div class="content-area">
-			<div id="content-text" class="content-text">
-			</div>
-		</div>
-	</div>
-	
-	<div id="alja">
-		<div class="footer-card">
-			<div id="email_alja" class="contact-item">
-				📧 Email:
-				<br><a class="kapcsolatok" href="mailto:ingatlanatlasz@gmail.com">ingatlanatlasz@gmail.com</a>
-			</div>
-			<div id="tel_alja" class="contact-item">
-				📱 Telefon:
-				<br><a class="kapcsolatok" href="tel:+36301234567">06 30 1234567</a>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
-			
-
-			#torzs{
-
-				height: 60vh;
-
-			}
-
-			
-
-			#bttn_celunk_torzs, #bttn_bovebben_torzs, #bttn_kapcsolat_torzs {
-
-				min-width: 40px;
-
 				font-size: 0.85rem;
-
 				padding: 9.5px 17.5px;
-
 			}
-
 			.button-container {
-
-				left: 5px;  
-
+				left: 50%;
+				transform: translateX(-50%);
 				gap: 5px;  
-
 			}
-
 			  
-
 			.content-area {
-
 				top: 70px;
-
 				bottom: 1px;
-
 			}
-
 			
-
 			.content-text {
-
 				font-size: 0.7rem;
-
 			}
-
 			
-
 			#modoFunkcFelirat{
-
 				font-size: 0.7rem;
-
 			}
-
 			
-
 			#kerdesKattFelirat{
-
 				font-size: 0.75rem;
-
 			}
-
 			.faq-question {
-
 				padding: 12px 40px 12px 15px;
-
 				font-size: 0.7rem;
-
 			}
-
 			.faq-question:hover {
-
 				background: rgba(255,255,255,0.12);
-
 				transform: translateX(0px);
-
 			}
-
 			.faq-answer {
-
 				font-size: 0.8rem;
-
 			}
-
 			
-
 			#torzs.compact {
-
-				height: auto;
-
-				display: flex;
-
-				flex-direction: column;
-
-				padding-top: 20px;
-
+				height: auto !important;
+				min-height: 40vh;
 			}
-
 			  
-
 			#torzs.compact .button-container {
-
-				position: static;
-
-				align-self: flex-start;
-
-				margin-bottom: 20px;
-
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
 			}
-
 			  
-
 			#torzs.compact .content-area {
-
 				position: static;
-
 				height: auto;
-
-				flex: 1;
-
-				margin: 0 20px 20px 20px;
-
+				margin-top: 80px;
+				margin-left: 20px;
+				margin-right: 20px;
+				margin-bottom: 20px;
 			}
-
 			
-
 			.content-area.lil{
-
 				text-align:justify;
-
 			}
-
 			
-
 			#alja {
-
 				height: auto;
-
 				padding: 4px;
-
 				font-size: 0.7rem;
-
 			}
-
 		}
-
 	</style>
-
 	<script>
-
 		document.addEventListener('DOMContentLoaded', function () {
-
 		  var bttn_celunk_torzs = document.getElementById('bttn_celunk_torzs');
-
 		  var bttn_bovebben_torzs = document.getElementById('bttn_bovebben_torzs');
-
 		  var bttn_kapcsolat_torzs = document.getElementById('bttn_kapcsolat_torzs');
-
 		  var contentArea = document.querySelector('.content-area');
-
 		  var contentText = document.getElementById('content-text');
-
 		  var torzs = document.getElementById('torzs');
 
-
-
 		  function setupElerhetosegLink() {
-
 			var link = document.querySelector('.elerhetosegek_link');
-
 			if (link) {
-
 			  link.onclick = function (e) {
-
 				e.preventDefault();
-
 				bttn_kapcsolat_torzs.click();
-
 			  };
-
 			}
-
 		  }
-
-
 
 		  function setupBovebbenLink() {
-
 			var link = document.querySelector('.bovebben_link');
-
 			if (link) {
-
 			  link.onclick = function (e) {
-
 				e.preventDefault();
-
 				bttn_bovebben_torzs.click();
-
 			  };
-
 			}
-
 		  }
-
-
 
 		  function resetAllShadows() {
-
 			bttn_celunk_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-
 			bttn_bovebben_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-
 			bttn_kapcsolat_torzs.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-
 		  }
-
-
 
 		  function setupFAQ() {
-
 			var faqQuestions = document.querySelectorAll('.faq-question');
-
 			faqQuestions.forEach(function (question) {
-
 			  question.addEventListener('click', function () {
-
 				var answer = this.nextElementSibling;
-
 				var isActive = this.classList.contains('active');
-
 				faqQuestions.forEach(function (q) {
-
 				  q.classList.remove('active');
-
 				  q.nextElementSibling.classList.remove('active');
-
 				});
-
 				if (!isActive) {
-
 				  this.classList.add('active');
-
 				  answer.classList.add('active');
-
 				}
-
 			  });
-
 			});
-
 			setupElerhetosegLink();
-
 		  }
-
-
 
 		  bttn_celunk_torzs.onclick = function () {
-
 			resetAllShadows();
-
 			bttn_celunk_torzs.style.boxShadow =
-
 			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
-
 			contentText.innerHTML =
-
 			  "<br>Célunk egy olyan megbízható szoftverkomponens elérhetővé tétele, amely hatékony megoldás nyújt vállalkozásoknak, illetve magánszemélyeknek az ingatlanok nyilvántartásában.<br><br>Ha szeretne jobban megismerkedni a nyilvántartó rendszerben rejlő funkciókkal, kérem kattintson a <a href='#' class='bovebben_link'>Bővebben</a> menüpontra.<br><br>Amennyiben szüksége van az említett szoftverre/applikációra vagy meglévő ügyfelükként továbbfejlesztési igénye lenne kérem, keressen bizalommal a <a href='#' class='elerhetosegek_link'>Kapcsolat</a> menüpontban található elérhetőségek egyikén.";
-
 			setupElerhetosegLink();
-
 			setupBovebbenLink();
-
 			torzs.classList.remove('expanded');
-
 			contentArea.classList.add('lil');
-
 			//torzs.classList.add('compact');
-
 			document.getElementById('alja').style.display = 'flex';
-
 		  };
-
-
 
 		  bttn_bovebben_torzs.onclick = function () {
-
 			resetAllShadows();
-
 			bttn_bovebben_torzs.style.boxShadow =
-
 			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
-
 			contentText.innerHTML = `
-
 			  <div class="faq-container">
-
 				<p id="kerdesKattFelirat" style="margin-bottom: 20px; font-weight: 600;">A kérdésekre kattintva megtudhatja, hogy milyen módon kínál megoldást a nyilvántartó rendszer az adott problémára.</p>
-
 				<p id="modoFunkcFelirat" style="margin-bottom: 25px; color: #e0e0e0;">Az felsorolt funkciók mindegyike igény szerint módosítható, illetve eltávolítható!</p>
 
-
-
 				<div class="faq-item">
-
 					<div class="faq-question">Szeretne átfogó képet kapni a kiadásairól és bevételeiről?</div>
-
 					<div class="faq-answer">
-
 						<p>A nyilvántartó rendszerben lehetősége nyílik táblázatos és diagrammos kimutatások készítésére a közüzemi és javítási költségekről, illetve az ingatlan esetleges kiadásából származó bevételekről.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Kiutat keres az adatok káoszából?</div>
-
 					<div class="faq-answer">
-
 						<p>Az Ingatlan Atlasz strukkturáltsága révén biztos megoldást nyújt a nyilvántartott adatok egyszerű és hatékony átlátására. A rendszer felépítése lehetővé teszi, hogy az adatok szeparáltan jelenjenek meg, így egyszerre mindig csak egymással szorosan összefüggő információk legyenek láthatóak.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Aggódik az adatok biztonságáért?</div>
-
 					<div class="faq-answer">
-
 						<p>A rendszerbe való belépéshez felhasználói profil (név és jelszó) szükséges. Ezen felül minden profilnak saját jogosultsági szint adható, illetve az az egyes funkciók használata (például egy ingatlan teljeskörű törlése) is jogosultsági szinthez köthető.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Van -e lehetőség meghatározott paraméterekkel rendelkező ingatlanok keresésére?</div>
-
 					<div class="faq-answer">
-
 						<p>Természetesen van. Az ilyenfajta lekérdezések készítésekor egy listát kapunk a megfelelő ingatlanok neveivel. Minden találat mellett pedig egy gomb helyezkedik el, amelyre kattintva megtekinthetjük a kiválasztott ingatlan összes adatát.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Milyen módon védekezik a rendszer a helytelen adatok megadása ellen?</div>
-
 					<div class="faq-answer">
-
 						<p>Mentést megelőzően a számlaadatokat összeveti a rendszer a eddigiekkel, illetve az adott számlához tartozó részadatokat egymással és jelentős eltérés esetén pedig jelzi azt felhasználóknak. Ezen felül számos adatot a rendszer előre meghatározott formátumban vár, a beírást követően pedig azonnal ellenőrzi is őket (ilyenek például a telefonszám vagy a dátum mezők).</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Egyszerre több felhasználó is tudja használni?</div>
-
 					<div class="faq-answer">
-
 						<p>A rendszerben tárolt adatokhoz egyidjűleg több felhasználó is hozzáférhet, azonban egy adott ingatlan adatait egyszerre kizárólag egy felhasználó szerkesztheti.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Elakadás esetén van e mód segítségkérésre?</div>
-
 					<div class="faq-answer">
-
 						<p>Igen, a nyilvántartó rendszer beépített súgó gombokkal rendelkezik, amelyekre kattintva a felhasználó rövid leírást kaphat az éppen elérhető funkciók használatáról. Ugyan ez a hatás érhető el a F1 billentyű lenyomásával.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Változtatható a betűk mérete/színe?</div>
-
 					<div class="faq-answer">
-
 						<p>Az Ingatlan Atlaszban lehetőséget biztosít hogy minden felhasználó a saját igényei szerint használja az alkalmazást. Az alapértelmezett betűmerettől 2 egységgel lehet növelni illetve csökkenteni a betűk méretét. Színek tekintetében pedig kék, zöld és letisztult (fekete-fehér) stílusok közül lehet választani.</p>
-
 					</div>
-
 				</div>
-
 				
-
 				<div class="faq-item">
-
 					<div class="faq-question">Miért nem rendelkezem az Ingatlan Atlasz nyilvántartó rendszerrel?</div>
-
 					<div class="faq-answer">
-
 						<p>Ennek az egyedüli oka az lehet, hogy még nem keresett fel bennünket a <a href="#" class="elerhetosegek_link">Kapcsolat</a> menüpontban található elérhetőségek egyikén!</p>
-
 					</div>
-
 				</div>
-
 			  </div>
-
 			`;
-
 			torzs.classList.remove('expanded');
-
 			torzs.classList.remove('compact');
-
 			contentArea.classList.remove('lil');
-
 			document.getElementById('alja').style.display = 'flex';
-
 			setupFAQ();
-
 		  };
-
-
 
 		  bttn_kapcsolat_torzs.onclick = function () {
-
 			resetAllShadows();
-
 			bttn_kapcsolat_torzs.style.boxShadow =
-
 			  '0 0 30px deepskyblue inset, 0 0 30px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset, 0 0 10px deepskyblue inset';
 
-
-
 			contentText.innerHTML = `
-
 			  <div style="margin-bottom: 20px;">
-
 				<div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-
 				  <span style="min-width: 20px; flex-shrink: 0;">📧 <strong>E-mail:</strong></span>
-
 				  
-
 				  <div style="flex: 1;">
-
 					<div style="margin-bottom: 8px; margin-left: -25px;"><br>új ügyfelek részére: <a href='mailto:ingatlanatlasz@gmail.com'>ingatlanatlasz@gmail.com</a></div>
-
 					<div style="margin-bottom: 8px; margin-left: -25px;">meglévő ügyfelek részére: <a href='mailto:ingatlanatlaszmeglevo@gmail.com'>ingatlanatlaszmeglevo@gmail.com</a></div>
-
 				  </div>
-
 				</div>
-
 				
-
 				<div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-
 				  <span style="min-width: 20px; flex-shrink: 0;">📱 <strong>Telefon:</strong></span>
-
 				  <div><a href='tel:+36301234567'>+36 30 123 4567</a></div>
-
 				</div>
-
 			  </div>
-
 			  
-
-			 
-
+			  <span id='viewportSize' style='display:inline-block;margin-top:6px;'></span><br><br>
 			  🔗 <span id='kozvetlen'><strong>Közvetlen üzenet küldéséhez kattintson ide</strong></span><br><br>
-
 			  
-
-			  <div id='kontakt-form-wrap' style='margin-top:12px; margin-left:20px'>
+			  <div id='kontakt-form-wrap' style='margin-top:12px;'>
 				<form id='kontaktForm' class='kapcsolat-form' style='display:grid;gap:10px;max-width:520px;'>
-
 				  <input type='hidden' name='access_key' value='d0602500-3ece-48c6-86db-bef88bbcda5d'>
-
 				  <input type='hidden' name='subject' value='Kapcsolat üzenet az oldalról'>
-
 				  <input type='checkbox' name='botcheck' style='display:none'>
-
 				  <label>Név<input name='name' type='text' required placeholder='Az Ön neve' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></label>
-
 				  <label>Telefonszám<input id='tel' name='tel' type='tel' inputmode='tel' autocomplete='tel' required placeholder='06 30 123 4567' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></label>
-
 				  <label>Üzenet<textarea name='message' required rows='5' placeholder='Kérem, ide írja üzenetét…' style='width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#fff'></textarea></label>
-
 				  <button id='kontaktKuldes' type='submit' style='padding:12px 18px;border-radius:10px;border:2px solid #fff;background:transparent;color:#fff;font-weight:600;cursor:pointer'>Üzenet küldése</button>
-
 				  <div id='kontaktUzenet' style='min-height:20px;font-size:0.95rem'></div>
-
 				</form>
-
 			  </div>
-
 			`;
 
-
-
 			var wrap = document.getElementById('kontakt-form-wrap');
-
 			wrap.style.display = 'none';
-
 			document.getElementById('alja').style.display = 'none';
-
 			contentArea.classList.remove('lil');
-
 			//torzs.classList.add('compact');
-
 			
-
 			var kozvetlen = document.getElementById('kozvetlen');
-
 			kozvetlen.style.cursor = 'pointer';
-
 			kozvetlen.addEventListener('click', function () {
-
 			  var isHidden = wrap.style.display === 'none' || wrap.style.display === '';
-
 			  wrap.style.display = isHidden ? 'block' : 'none';
-
 			  torzs.classList.toggle('expanded', isHidden);
-
 			});
-
-
 
 			initKontaktForm();
-
 			updateViewportSize();
-
 		  };
-
 		
-
 		function updateViewportSize() {
-
 			var w = window.innerWidth;
-
 			var h = window.innerHeight;
-
 			var el = document.getElementById('viewportSize');
-
 			if (el) {
-
 				el.textContent = "Ablakméret: " + w + " × " + h + " px";
-
 			}
-
 		}
-
 		window.addEventListener('resize', updateViewportSize);
-
 		document.addEventListener('visibilitychange', function () {
-
 			if (!document.hidden) updateViewportSize();
-
 		});
-
 			
-
 		  function initKontaktForm() {
-
 			var form = document.getElementById('kontaktForm');
-
 			if (!form) return;
-
 			var msgEl = document.getElementById('kontaktUzenet');
-
 			var btn = document.getElementById('kontaktKuldes');
 
-
-
 			form.addEventListener('submit', function (e) {
-
 			  e.preventDefault();
-
 			  submitKontaktForm(form, msgEl, btn);
-
 			});
-
 		  }
-
-
 
 		  async function submitKontaktForm(form, msgEl, btn) {
-
 			var honeypot = form.querySelector('[name="botcheck"]');
-
 			if (honeypot && honeypot.checked) return;
 
-
-
 			btn.disabled = true;
-
 			msgEl.textContent = 'Küldés folyamatban…';
 
-
-
 			try {
-
 			  var payload = Object.fromEntries(new FormData(form));
-
 			  var resp = await fetch('https://api.web3forms.com/submit', {
-
 				method: 'POST',
-
 				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-
 				body: JSON.stringify(payload)
-
 			  });
 
-
-
 			  var rawText = await resp.text();
-
 			  var data; try { data = JSON.parse(rawText); } catch { data = { raw: rawText }; }
 
-
-
 			  if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
-
 				var cooldown = 60;
-
 				msgEl.textContent = `Túl sok kérés. Próbálja újra ${cooldown} mp múlva.`;
-
 				var timer = setInterval(function () {
-
 				  cooldown--;
-
 				  msgEl.textContent = `Túl sok kérés. Próbálja újra ${cooldown} mp múlva.`;
-
 				  if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
-
 				}, 1000);
-
 				return;
-
 			  }
-
-
 
 			  if (!resp.ok || (data && data.success === false)) {
-
 				var errMsg = (data && (data.message || data.raw)) || (`HTTP ${resp.status} ${resp.statusText}`);
-
 				throw new Error(errMsg);
-
 			  }
 
-
-
 			  msgEl.textContent = 'Üzenet elküldve! Hamarosan jelentkezünk.';
-
 			  form.reset();
-
 			} catch (err) {
-
 			  console.error(err);
-
 			  msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
-
 			} finally {
-
 			  if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) btn.disabled = false;
-
 			}
-
 		  }
 
-
-
 		  // Default section to show on load:
-
 		  bttn_bovebben_torzs.click();
-
 		});
-
 	</script>
-
 </head>
-
 <body>
-
 	<div id="teto">
-
 		<p id="cim">Ingatlan Atlasz</p>
-
 	</div>
-
 	
-
 	<div id="torzs">
-
 		<div class="button-container">
-
 			<div id="bttn_celunk_torzs">
-
 				Célunk
-
 			</div>
-
 			<div id="bttn_bovebben_torzs">
-
 				Bővebben
-
 			</div>
-
 			<div id="bttn_kapcsolat_torzs">
-
 				Kapcsolat
-
 			</div>
-
 		</div>
-
 		
-
 		<div class="content-area">
-
 			<div id="content-text" class="content-text">
-
 			</div>
-
 		</div>
-
 	</div>
-
 	
-
 	<div id="alja">
-
 		<div class="footer-card">
-
 			<div id="email_alja" class="contact-item">
-
 				📧 Email:
-
 				<br><a href="mailto:ingatlanatlasz@gmail.com">ingatlanatlasz@gmail.com</a>
-
 			</div>
-
 			<div id="tel_alja" class="contact-item">
-
 				📱 Telefon:
-
 				<br><a href="tel:+36301234567">06 30 1234567</a>
-
 			</div>
-
 		</div>
-
 	</div>
-
 </body>
-
 </html>
